@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp">
+
+    <Spinner
+        android:id="@+id/spTool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/tools"/>
+
+    <!--Paleta de colores-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp">
+
+        <Button
+            android:id="@+id/btnCBlack"
+            style="@style/ColorSwatchButton"
+            android:backgroundTint="#000000"/>
+
+        <Button
+            android:id="@+id/btnCRed"
+            style="@style/ColorSwatchButton"
+            android:backgroundTint="#F44336"/>
+
+        <Button
+            android:id="@+id/btnCGreen"
+            style="@style/ColorSwatchButton"
+            android:backgroundTint="#4CAF50"/>
+
+        <Button
+            android:id="@+id/btnCBlue"
+            style="@style/ColorSwatchButton"
+            android:backgroundTint="#2196F3"/>
+
+        <Button
+            android:id="@+id/btnCYellow"
+            style="@style/ColorSwatchButton"
+            android:backgroundTint="#FFEB3B"
+            android:textColor="#000000"/> <!-- Texto negro para mejor contraste -->
+    </LinearLayout>
+
+    <!--Mezclador RGB-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+        <TextView style="@style/LabelText" android:text="Mezclador RGB"/>
+        <View
+            android:id="@+id/vColorPreview"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:background="#000"/>
+        <SeekBar style="@style/CustomSeekBar" android:id="@+id/seekR" android:max="255" />
+        <SeekBar style="@style/CustomSeekBar" android:id="@+id/seekG" android:max="255"/>
+        <SeekBar style="@style/CustomSeekBar" android:id="@+id/seekB" android:max="255"/>
+    </LinearLayout>
+
+    <!--Grosor y acciones-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView style="@style/LabelText" android:text="Grosor:"/>
+
+        <SeekBar
+            android:id="@+id/seekStroke"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="60" />
+
+        <!-- Botones de acciones con nuevo estilo -->
+        <Button
+            style="@style/ActionButton"
+            android:id="@+id/btnSave"
+            android:text="Guardar"/>
+
+        <Button
+            style="@style/ActionButton"
+            android:id="@+id/btnUndo"
+            android:text="Deshacer"/>
+
+        <Button
+            style="@style/ActionButton"
+            android:id="@+id/btnClear"
+            android:text="Limpiar"/>
+    </LinearLayout>
+    <!--Lienzo-->
+    <!--PaintView nombre de una clase kt-->
+    <com.icc.practica11.PaintView
+        android:id="@+id/paintView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        />
+</LinearLayout>
